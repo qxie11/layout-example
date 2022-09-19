@@ -1,0 +1,15 @@
+/* stylelint-disable */
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100&family=Montserrat:wght@300;700&display=swap");
+@import "@styles/utils/vars";
+
+@font-face {
+  font-family: "Helvetica Rounded Bold";
+  src: url("#{$fonts-path}/Helvetica-Rounded-Bold.eot")
+      format("embedded-opentype"),
+    url("#{$fonts-path}/Helvetica-Rounded-Bold.woff2") format("woff2"),
+    url("#{$fonts-path}/Helvetica-Rounded-Bold.svg") format("svg"),
+    url("#{$fonts-path}/Helvetica-Rounded-Bold.ttf") format("truetype"),
+    url("#{$fonts-path}/Helvetica-Rounded-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

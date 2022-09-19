@@ -1,0 +1,39 @@
+@import "@styles/utils/vars";
+
+.header {
+  padding: 10px 0;
+  background-color: $main-color-2;
+
+  .container {
+    max-width: 1860px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    line-height: 1;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &__link {
+    margin-left: 50px;
+
+    @media (max-width: $md) {
+      margin-left: auto;
+    }
+  }
+
+  &__switch-btn {
+    margin-left: auto;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+}

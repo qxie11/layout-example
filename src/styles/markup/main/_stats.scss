@@ -1,0 +1,123 @@
+@import "@styles/utils/vars";
+
+$slider-breakpoint: 1600px;
+$width-of-circle: 260px;
+
+.stats {
+  padding: 50px 0 135px;
+  background-color: rgba($moon-raker, 0.2);
+
+  @media (max-width: $md) {
+    padding: 25px 0 60px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    color: $deep-koamaru;
+    text-align: center;
+
+    @media (max-width: $md) {
+      margin-bottom: 69px;
+      font-size: 29px;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+
+    &-next {
+      right: -20px;
+    }
+
+    &-prev {
+      left: -20px;
+    }
+
+    &-next,
+    &-prev {
+      position: absolute;
+      z-index: 12;
+      top: 50%;
+      transform: scale(1) translateY(-50%);
+
+      @media (min-width: $slider-breakpoint) {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1.1) translateY(-50%);
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    justify-items: center;
+
+    @media (max-width: $slider-breakpoint) {
+      display: flex;
+    }
+
+    &-circle {
+      position: relative;
+      padding: 50px;
+      width: $width-of-circle;
+      height: $width-of-circle;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: rgba($hampton, 0.33);
+      text-align: center;
+      color: $pickled-bluewood;
+
+      @media (max-width: $slider-breakpoint) {
+        margin: 0 auto;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: $kournikova;
+        width: 2px;
+        height: auto;
+        top: 0;
+        bottom: 0;
+        right: calc(max(-1.6vw, -37px));
+
+        @media (max-width: $slider-breakpoint) {
+          width: $width-of-circle;
+          height: 2px;
+          bottom: -15px;
+          right: 0;
+          top: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 13px;
+      line-height: 1;
+    }
+  }
+
+  &__wrapper .swiper-slide {
+    &:not(:last-child) {
+      @media (min-width: $slider-breakpoint) {
+        width: auto;
+      }
+    }
+
+    &:last-child {
+      .stats__wrapper-circle::before {
+        @media (min-width: $slider-breakpoint) {
+          content: none;
+        }
+      }
+    }
+  }
+}

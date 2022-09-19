@@ -1,0 +1,133 @@
+@import "@styles/utils/vars";
+
+$swiper-init-breakpoint: 1600px;
+
+.advantages {
+  padding: 130px 0 150px;
+
+  @media (max-width: $md) {
+    padding: 25px 0 60px;
+  }
+
+  .container {
+    max-width: 1920px;
+  }
+
+  $wrapper-gap: 45px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $wrapper-gap;
+
+    @media (max-width: $swiper-init-breakpoint) {
+      gap: 0;
+    }
+  }
+
+  $card-bottom-padding: 30px;
+  $card-left-padding: 30px;
+  $card-bottom-padding-lg: 25px;
+  $card-left-padding-lg: 15px;
+
+  &__card {
+    position: relative;
+    height: 100%;
+    padding: $card-bottom-padding $card-left-padding;
+    border-radius: 25px;
+    background-color: rgba($catalina-blue, 0.66);
+
+    @media (max-width: $lg) {
+      padding: 40px $card-left-padding-lg $card-bottom-padding-lg;
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 136px;
+
+      @media (max-width: $swiper-init-breakpoint) {
+        flex-direction: column;
+        gap: 33px;
+        margin-bottom: 60px;
+      }
+    }
+
+    img {
+      @media (max-width: $swiper-init-breakpoint) {
+        max-width: 50px;
+      }
+    }
+
+    &-title {
+      margin-bottom: 50px;
+
+      @media (max-width: $swiper-init-breakpoint) {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+    }
+
+    &-desc {
+      max-width: 242px;
+      font-size: 24px;
+
+      @media (max-width: $swiper-init-breakpoint) {
+        margin-left: 25px;
+        max-width: 100%;
+        font-size: 16px;
+      }
+    }
+
+    &-btn {
+      position: absolute;
+      bottom: $card-bottom-padding;
+      right: $card-left-padding;
+    }
+  }
+
+  ul li &__card {
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: $kournikova;
+    }
+
+    &::before {
+      width: 2px;
+      height: auto;
+      top: 0;
+      bottom: 0;
+      right: -$wrapper-gap / 2;
+
+      @media (max-width: $swiper-init-breakpoint) {
+        display: none;
+      }
+    }
+
+    &::after {
+      width: 100%;
+      height: 2px;
+      bottom: -25px;
+      transform: translateX(50%);
+
+      @media (max-width: $swiper-init-breakpoint) {
+        width: 66%;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  ul li:last-child &__card {
+    @media (min-width: $swiper-init-breakpoint) {
+      &::after,
+      &::before {
+        content: none;
+      }
+    }
+  }
+}

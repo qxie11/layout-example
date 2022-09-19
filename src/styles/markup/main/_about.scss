@@ -1,0 +1,95 @@
+@import "@styles/utils/vars";
+
+.about {
+  padding-bottom: 222px;
+
+  @media (max-width: $xxlg) {
+    padding-bottom: 40px;
+  }
+
+  .container {
+    max-width: 1500px;
+  }
+
+  &__title {
+    max-width: 334px;
+    margin-bottom: 13px;
+    font-family: $helvetica-rounded-bold;
+    text-align: center;
+    color: $deep-koamaru;
+
+    @media (max-width: $xxlg) {
+      margin: 0 auto 100px;
+    }
+
+    @media (max-width: $md) {
+      max-width: 234px;
+    }
+
+    &::after,
+    &::before {
+      opacity: 0.2;
+      bottom: -80%;
+
+      @media (max-width: $md) {
+        bottom: -220%;
+      }
+    }
+
+    &::after {
+      transform: rotate(26deg);
+    }
+
+    &::before {
+      transform: rotate(-19deg);
+    }
+  }
+
+  &__info {
+    max-width: 1012px;
+    margin-left: auto;
+
+    @media (max-width: $xxlg) {
+      max-width: 100%;
+    }
+
+    &::after,
+    &::before {
+      top: -148px;
+      bottom: -8%;
+      left: -85px;
+      right: -175px;
+    }
+
+    &::before {
+      transform: rotate(-30deg);
+
+      @media (max-width: $xxlg) {
+        display: none;
+      }
+    }
+
+    &::after {
+      @media (max-width: $xxlg) {
+        left: -$container-padding;
+        right: -$container-padding;
+        top: -40px;
+        bottom: -40px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &-text {
+      font-size: 24px;
+
+      @media (max-width: $md) {
+        font-size: 16px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 22px;
+      }
+    }
+  }
+}

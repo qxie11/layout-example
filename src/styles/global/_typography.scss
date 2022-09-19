@@ -1,0 +1,41 @@
+@import "@styles/utils/vars";
+
+.h1-title {
+  font-size: 56px;
+
+  @media (max-width: $md) {
+    font-size: 29px;
+  }
+}
+
+.h2-title {
+  font-size: 48px;
+
+  @media (max-width: $md) {
+    font-size: 40px;
+  }
+}
+
+.h3-title {
+  font-size: 36px;
+
+  @media (max-width: $md) {
+    font-size: 19px;
+  }
+}
+
+.h4-title {
+  font-size: 24px;
+
+  @media (min-width: $md) {
+    font-size: 19px;
+  }
+}
+
+.h5-title {
+  font-size: 16px;
+
+  @media (min-width: $md) {
+    font-size: 13px;
+  }
+}

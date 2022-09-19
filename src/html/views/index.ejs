@@ -1,0 +1,191 @@
+<% var data = { title: "Главная" }; %>
+<!DOCTYPE html>
+<html lang="ru">
+  <%= require('@partials/head.ejs')(data) %>
+  <body>
+    <%= require('@partials/header.ejs')() %>
+    <main>
+      <section class="intro">
+        <div class="container">
+          <div class="intro__wrapper">
+            <div class="intro__wrapper-info">
+              <h1 class="h1-title intro__wrapper-title">
+                Промокод REG.ru
+                <span class="intro__wrapper-discont">-5% скидка</span>
+              </h1>
+              <p class="intro__wrapper-subtitle">
+                Приобретайте услуги REG.ru с дополнительной скидкой!
+              </p>
+              <p class="intro__wrapper-text">
+                Скопируйте промокод, после чего введите его в Вашем личном
+                кабинете и получите скидку 5% на любые услуги REG.ru
+              </p>
+              <button class="button-general intro__copy-btn">
+                58EE-99A0-1C4B-BF1
+                <span class="intro__copy-img">
+                  <img src="<%= require('@icons/copy.svg') %>" alt="copy" />
+                </span>
+              </button>
+              <a class="button-general intro__link">Перейти к разделу</a>
+            </div>
+            <div class="intro__wrapper-worker">
+              <img
+                src="<%= require('@images/intro-worker.webp') %>"
+                alt="worker"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="advantages">
+        <div class="container">
+          <% var cardsData = [{title: 'Сервер для бизнеса', desc: `Обслуживаем,
+          оптимизируем и мониторим 24/7!`, img: 'server', btn_text: `Больше об
+          услуге`}, {title: 'Работайте в Облаке', desc: `Windows VPS с удаленным
+          рабочим столом`, img: 'cloud', btn_text: `Заказать сервер`},{title:
+          `Домен.ART`, desc: `Когда бизнес как искусство`, img: 'domain',
+          btn_text: `Заказать за 399 ₽ `},{title: `Суперцена на .XYZ `, desc:
+          `Теперь всего 85 рублей!`, img: 'dollar', btn_text: `Выбрать домен`},]
+          %>
+          <div id="advantages-swiper">
+            <ul class="advantages__wrapper swiper-wrapper">
+              <% cardsData.forEach(function(card) { %>
+              <li class="swiper-slide">
+                <div class="advantages__card">
+                  <h3 class="h3-title advantages__card-title">
+                    <%= card.title %>
+                  </h3>
+                  <div class="advantages__card-wrapper">
+                    <img
+                      src="<%= require(`@icons/${card.img}.svg`) %>"
+                      alt="<%=
+                    card.img %>"
+                    />
+                    <p class="advantages__card-desc"><%= card.desc %></p>
+                  </div>
+                  <button class="button-general advantages__card-btn">
+                    <%= card.btn_text %>
+                  </button>
+                </div>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="stats">
+        <div class="container">
+          <h2 class="h3-title stats__title">
+            Почему REG.ru? <br />
+            Это просто!
+          </h2>
+          <% var statsData = [{title: '№1', desc: `Регистратор и хостинг-
+          провайдер в России`}, {title: '39 млн', desc: `Оказанных услуг`},
+          {title: `3.3 млн`, desc: `Доменов на обслуживании`},{title: `2.2 млн`,
+          desc: `Более 2.2 млн клиентов`}, {title: `24/7`, desc:
+          `Профессиональная поддержка`}] %>
+          <div id="stats-swiper" class="stats__swiper">
+            <button class="arrow stats__swiper-prev" id="stats__wrapper-prev">
+              <img src="<%= require('@icons/arrow-left.svg') %>" alt="prev" />
+            </button>
+            <button class="arrow stats__swiper-next" id="stats__wrapper-next">
+              <img src="<%= require('@icons/arrow-right.svg') %>" alt="next" />
+            </button>
+            <ul class="swiper-wrapper stats__wrapper">
+              <% statsData.forEach(function(stats) { %>
+              <li class="swiper-slide">
+                <div class="stats__wrapper-circle">
+                  <h3 class="h1-title stats__wrapper-title">
+                    <%= stats.title %>
+                  </h3>
+                  <p class="stats__wrapper-desc"><%= stats.desc %></p>
+                </div>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="clients">
+        <% var clientsData = [['abbyy', 's-7-airlines', 'alfa-bank',
+        'auchan-retail'], ['abbyy', 's-7-airlines', 'alfa-bank',
+        'auchan-retail']]; %>
+        <div class="container">
+          <div class="clients__top-wrapper">
+            <h2 class="clients__title h3-title">
+              Клиенты REG.ru
+              <a class="h5-title clients__see-all" href="#">Посмотреть все</a>
+            </h2>
+            <div class="clients__nav">
+              <button id="clients__nav-prev" class="arrow clients__nav-prev">
+                <img src="<%= require('@icons/arrow-left.svg') %>" alt="prev" />
+              </button>
+              <button id="clients__nav-next" class="arrow clients__nav-next">
+                <img
+                  src="<%= require('@icons/arrow-right.svg') %>"
+                  alt="prev"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="clients__swiper swiper" id="clients__swiper">
+            <div class="swiper-wrapper">
+              <% clientsData.forEach(function(clients) { %>
+              <div class="swiper-slide">
+                <div class="clients__swiper-wrapper">
+                  <% clients.forEach(function(name) { %>
+                  <img
+                    src="<%= require(`@icons/${name}.svg`) %>"
+                    alt="<%= name %>"
+                  />
+                  <% }); %>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+            <div
+              id="clients__swiper-pagination"
+              class="swiper-pagination clients__swiper-pagination"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <div class="container">
+          <h2 class="h1-title about__title bg-squares">О компании REG.ru</h2>
+          <div class="about__info bg-squares">
+            <p class="about__info-text">
+              ООО «Регистратор доменных имён РЕГ.РУ» — лидер среди российских
+              регистраторов доменных имён и хостинг-провайдеров, который
+              осуществляет свою деятельность с 2006 года.
+            </p>
+            <p class="about__info-text">
+              Лучше всего качество работы компании отражают цифры: на
+              обслуживании у REG.RU более 3 300 000 доменов (по данным
+              статистического ресурса StatOnline.ru), каждый второй домен в
+              России регистрируется в REG.RU, общее число оказанных услуг за 16
+              лет достигло 39 млн, а количество клиентов насчитывает более 2.2
+              млн. REG.RU клиенты могут зарегистрировать домены в более чем 750
+              международных и национальных доменных зонах, и как подтверждение
+              надёжности выбранной ими компании профессиональная ответственность
+              REG.RU была застрахована «Ингосстрахом» на $1 000 000.
+            </p>
+            <p class="about__info-text">
+              REG.RU нравится быть на передовой интернет-индустрии, потому что
+              это позволяет предлагать интеллектуальные сервисы и продукты
+              последнего поколения всем пользователям, среди которых как
+              розничные клиенты, так и партнеры.
+            </p>
+            <p class="about__info-text">
+              REG.RU - это, в первую очередь, постоянно растущая команда
+              профессионалов, которая всегда готова помочь вам в создании,
+              обслуживании и продвижении сайта. И поскольку за Интернетом
+              будущее, мы предлагаем вам творить будущее вместе!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%= require('@partials/footer.ejs')() %>
+  </body>
+</html>
